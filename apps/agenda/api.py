@@ -26,9 +26,9 @@ class AgendaViewSet(ModelViewSet):
     """
     queryset = Agenda.objects.all()
     serializer_class = AgendaModelSerializer
-    filter_backends  = [SearchFilter, OrderingFilter]
-    search_fields  = ['contact_name', 'contact_last_name',]
-    ordering_fields  = ['name', 'contact_last_name',]
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ['contact_name', 'contact_last_name',]
+    ordering_fields = ['name', 'contact_last_name',]
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
@@ -61,7 +61,7 @@ class AgendaViewSet(ModelViewSet):
         """
         queryset = self.get_queryset()
         agenda = get_object_or_404(queryset, pk=pk)
-        serializer  = AgendaModelSerializer(agenda)
+        serializer = AgendaModelSerializer(agenda)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def update(self, request, pk=None):
@@ -69,7 +69,7 @@ class AgendaViewSet(ModelViewSet):
             Function to update data of agenda object.
         """
         queryset = self.get_queryset()
-        agenda  = get_object_or_404(queryset, pk=pk)
+        agenda = get_object_or_404(queryset, pk=pk)
         if agenda.is_active is False:
             message = "Can't update this contact."
         else:
@@ -85,7 +85,7 @@ class AgendaViewSet(ModelViewSet):
             Function to partial update data of agenda object.
         """
         queryset = self.get_queryset()
-        agenda  = get_object_or_404(queryset, pk=pk)
+        agenda = get_object_or_404(queryset, pk=pk)
         if agenda.is_active is False:
             message = "Can't update this contact."
         else:

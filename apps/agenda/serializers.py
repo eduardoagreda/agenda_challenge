@@ -5,6 +5,7 @@ from rest_framework.serializers import ModelSerializer
 
 from .models import Agenda
 
+
 class AgendaModelSerializer(ModelSerializer):
     """
         Class that extends of ModelSerializer to serialize Agenda Model.

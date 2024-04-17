@@ -5,6 +5,7 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from apps.agenda.models import Agenda
 
+
 class AgendaTestCase(TestCase):
     """
         Agenda model test case.
@@ -17,24 +18,27 @@ class AgendaTestCase(TestCase):
         self.new_user = get_user_model().objects.create(
             first_name = 'Eduardo',
             last_name = 'Agreda',
-            username = 'eagreda'
+            email = 'eagreda@gmail.com'
         )
-        self.new_agenda: Agenda = Agenda.objects.create(
+
+        self.new_agenda = Agenda.objects.create(
             contact_name='Eduardo',
-            contact_lastname='Agreda Lopez',
+            contact_last_name='Agreda Lopez',
             contact_phone_number='9612332565',
             contact_email = 'eduardoagreda25@gmail.com',
             contact_assign = self.new_user
         )
 
+
     def test_string_representation(self):
         """
-            Test case to verify that the representation name of 
-            the agenda object generated in the setup function is equal 
+            Test case to verify that the representation name of
+            the agenda object generated in the setup function is equal
             to the magic function __str__ in the Agenda model.
         """
         self.assertEqual(str(self.new_agenda),
-                         f'{self.new_agenda.contact_name} {self.new_agenda.contact_lastname}')
+                         f'{self.new_agenda.contact_name} {self.new_agenda.contact_last_name}')
+
 
     def test_confirm_agenda_creation(self):
         """
