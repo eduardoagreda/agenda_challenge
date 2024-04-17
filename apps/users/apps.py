@@ -1,3 +1,6 @@
+"""
+    Script to generate the Users Config.
+"""
 from django.apps import AppConfig
 
 

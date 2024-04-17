@@ -1,5 +1,5 @@
 """
-    Script to generate the serlializers of User Model.
+    Script to generate the serlializers of Agenda Model.
 """
 from rest_framework.serializers import ModelSerializer
 

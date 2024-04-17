@@ -1,3 +1,6 @@
+"""
+    Script to generate the Agenda Config.
+"""
 from django.apps import AppConfig
 
 

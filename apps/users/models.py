@@ -3,8 +3,6 @@
 """
 from __future__ import unicode_literals
 
-from uuid import uuid4
-
 from django.db import models
 from django.core.mail import send_mail
 from django.contrib.auth.models import PermissionsMixin
@@ -64,4 +62,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def save(self, *args, **kwargs):
         if not self.pk:
             self.password = make_password(self.password)
-        super(CustomUser, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
